@@ -9,6 +9,8 @@ import { HomeService } from '../home.service';
   providers: [ HomeService ]
 })
 export class HomeComponent implements OnInit {
+	content;
+	errorMessage: string;
 
 	constructor( private _homeService: HomeService) { }
 
@@ -16,6 +18,12 @@ export class HomeComponent implements OnInit {
 		this._homeService.getContact()
 			.subscribe((res) => {
 				console.log(res);
+				if(res.status === "success") {
+					this.content = JSON.parse(res.data);
+				}
+				else if(res.status === "failed"){
+					this.errorMessage = res.message;
+				}
 			})
 	}
 

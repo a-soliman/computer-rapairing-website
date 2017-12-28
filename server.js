@@ -2,6 +2,7 @@ const express 		= require('express');
 const bodyParser	= require('body-parser');
 const path			= require('path');
 const nodeMailer	= require('nodemailer');
+const fs 			= require('fs');
 
 const app 	= express();
 let port 	= process.env.PORT || 3000;
@@ -19,7 +20,15 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', ( req, res ) => {
-	res.send({ title: 'Home page' })
+	const homeContent = fs.readFile('./data/home.json', 'utf8', (err, data) => {
+		if (err) {
+			return res.status(400).send({status: 'failed', message: 'Unable to retrive content.'})
+		}
+		
+		res.status(200).send({ status: 'success', data })
+	});
+	
+	
 });
 
 app.get('/about', ( req, res ) => {
