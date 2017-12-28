@@ -1,7 +1,7 @@
 <app-toolbar (route)=getRoute($event)></app-toolbar>
 
 <div class="routes-container">
-	<app-home *ngIf="route==='home'"></app-home>
-	<app-about *ngIf="route==='about'"></app-about>
-	<app-contact *ngIf="route==='contact'"></app-contact>
+	<app-home *ngIf="route === 'home'"></app-home>
+	<app-about *ngIf="route === 'about'"></app-about>
+	<app-contact *ngIf="route === 'contact'"></app-contact>
 </div>

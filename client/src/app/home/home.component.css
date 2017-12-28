@@ -1,0 +1,9 @@
+.section-container {
+	width: 100%;
+	text-align: center;
+}
+.section-card {
+	display: inline-grid;
+	width: 200px;
+	margin: 20px;
+}
