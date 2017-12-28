@@ -1,7 +1,8 @@
-<div *ngIf="content">
-	<h2>{{ content.title }}</h2>
-	<p>{{ content.body }}</p>
-</div>
+<mat-card *ngIf="content">
+	<mat-card-title>{{ content.title }}</mat-card-title>
+	<mat-card-subtitle>{{ content.subtitle }}</mat-card-subtitle>
+	<mat-card-content>{{ content.body }}</mat-card-content>
+</mat-card>
 
 <div class="error" *ngIf="error">
 	<p>{{ errorMessage }}</p>

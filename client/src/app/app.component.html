@@ -1,12 +1,4 @@
-<mat-toolbar color="primary" class="toolbar">
-  <mat-toolbar-row>
-    <span>Computer Repair Service</span>
-    <span class="example-spacer"></span>
-    <button mat-button color="accent" (click)="changeRoute('home')">Home</button>
-    <button mat-button color="accent" (click)="changeRoute('about')">About</button>
-    <button mat-button color="accent" (click)="changeRoute('contact')">Contact</button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<app-toolbar (route)=getRoute($event)></app-toolbar>
 
 <div class="routes-container">
 	<app-home *ngIf="route==='home'"></app-home>
