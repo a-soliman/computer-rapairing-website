@@ -1,3 +1,15 @@
-<app-home></app-home>
-<app-about></app-about>
-<app-contact></app-contact>
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <span>Computer Repair Service</span>
+    <span class="example-spacer"></span>
+    <button mat-button color="accent" (click)="changeRoute('home')">Home</button>
+    <button mat-button color="accent" (click)="changeRoute('about')">About</button>
+    <button mat-button color="accent" (click)="changeRoute('contact')">Contact</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="routes-container">
+	<app-home *ngIf="route==='home'"></app-home>
+	<app-about *ngIf="route==='about'"></app-about>
+	<app-contact *ngIf="route==='contact'"></app-contact>
+</div>

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  route = 'home';
+
+  changeRoute( route: string ): void {
+  	if( route === 'home' || route === 'about' || route === 'contact') {
+  		this.route = route;
+  		console.log(this.route)
+  	}
+  	return;
+  }
+
+
 }
