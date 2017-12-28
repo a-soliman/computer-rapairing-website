@@ -5,4 +5,29 @@ body {
 	padding: 0;
 	margin: 0;
 	background: #ececec;
+};
+
+.mobile-only {
+	display: none !important;
+}
+@media only screen and (min-width: 681px)  {
+	.desktop-only {
+		display: block;
+	}
+
+	.mobile-only {
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 680px)  {
+	.desktop-only {
+		display: none !important;
+	}
+
+	.mobile-only {
+		display: block;
+	}
+
 }

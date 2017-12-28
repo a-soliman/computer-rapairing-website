@@ -2,8 +2,23 @@
   <mat-toolbar-row>
     <span>Computer Repair Service</span>
     <span class="example-spacer"></span>
-    <button mat-button color="accent" (click)="changeRoute('home')">Home</button>
-    <button mat-button color="accent" (click)="changeRoute('about')">About</button>
-    <button mat-button color="accent" (click)="changeRoute('contact')">Contact</button>
+    <div class="mobile-only">
+    	<button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>menu</mat-icon></button>
+    </div>
+    
+    <div class="desktop-only">
+    	<button mat-button color="accent" (click)="changeRoute('home')">Home</button>
+    	<button mat-button color="accent" (click)="changeRoute('about')">About</button>
+    	<button mat-button color="accent" (click)="changeRoute('contact')">Contact</button>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item (click)="changeRoute('home')" 
+	*ngIf="route !== 'home'"> Home</button>
+  <button mat-menu-item (click)="changeRoute('about')"
+	*ngIf="route !== 'about'"> About</button>
+  <button mat-menu-item (click)="changeRoute('contact')"
+	*ngIf="route !== 'contact'"> Contact</button>
+</mat-menu>
