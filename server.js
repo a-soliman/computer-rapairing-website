@@ -32,11 +32,23 @@ app.get('/', ( req, res ) => {
 });
 
 app.get('/about', ( req, res ) => {
-	res.send({ title: 'About page' });
+	const aboutContent = fs.readFile('./data/about.json', 'utf8', (err, data) => {
+		if (err) {
+			return res.status(400).send({status: 'failed', message: 'Unable to retrive content.'})
+		}
+		
+		res.status(200).send({ status: 'success', data })
+	});
 });
 
 app.get('/contact', ( req, res ) => {
-	res.send({ title: 'Contact page' });
+	const contactContent = fs.readFile('./data/contact.json', 'utf8', (err, data) => {
+		if (err) {
+			return res.status(400).send({status: 'failed', message: 'Unable to retrive content.'})
+		}
+		
+		res.status(200).send({ status: 'success', data })
+	});
 });
 
 app.post('/contact/send', ( req, res ) => {
