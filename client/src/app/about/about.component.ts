@@ -17,7 +17,6 @@ export class AboutComponent implements OnInit {
 	ngOnInit() {
 		this._aboutService.getAbout()
 			.subscribe((res) => {
-				console.log(res);
 				if(res.status === "success") {
 					this.content = JSON.parse(res.data);
 				}

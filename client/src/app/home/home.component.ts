@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
 	ngOnInit() {
 		this._homeService.getContact()
 			.subscribe((res) => {
-				console.log(res);
 				if(res.status === "success") {
 					this.content = JSON.parse(res.data);
 				}
