@@ -1,8 +1,17 @@
-<div *ngIf="content">
-	<h2>{{ content.title }}</h2>
-	<p>{{ content.body }}</p>
-</div>
-
 <div class="error" *ngIf="error">
 	<p>{{ errorMessage }}</p>
 </div>
+
+<mat-card *ngIf="content">
+	<mat-card-title>{{ content.title }}</mat-card-title>
+	<mat-card-subtitle>{{ content.subtitle }}</mat-card-subtitle>
+	<mat-card-content>{{ content.body }}</mat-card-content>
+	
+	<div class="section-container">
+	<mat-card class="section-card" *ngFor="let section of content.sections">
+		<mat-card-subtitle>{{ section.header }}</mat-card-subtitle>
+		<mat-card-content>{{ section.content }}</mat-card-content>
+	</mat-card>
+	</div>
+</mat-card>
+

@@ -1,8 +1,62 @@
-<div *ngIf="content">
-	<h2>{{ content.title }}</h2>
-	<p>{{ content.body }}</p>
-</div>
-
 <div class="error" *ngIf="error">
 	<p>{{ errorMessage }}</p>
 </div>
+
+<mat-card *ngIf="content">
+	<mat-card-title>{{ content.title }}</mat-card-title>
+	<mat-card-subtitle>{{ content.subtitle }}</mat-card-subtitle>
+	<mat-card-content>{{ content.body }}</mat-card-content>
+	
+	<div class="section-container">
+		<mat-card class="section-card" *ngFor="let section of content.sections">
+			<mat-card-subtitle>{{ section.header }}</mat-card-subtitle>
+			<mat-card-content>{{ section.content }}</mat-card-content>
+		</mat-card>
+	</div>
+
+
+	<mat-card class="add-todo-card" style="margin-top: 20px;">
+		<form class="example-form" [formGroup]="contactForm" (ngSubmit)="sendEmail(contactForm.value)">
+		  	<mat-form-field class="input-full-width">
+		    	<input 
+		    		matInput
+		    		type="text" 
+		    		name="name" 
+					formControlName="name" 
+		    		placeholder="John Smith">
+		  	</mat-form-field>
+
+		  	<mat-form-field class="input-full-width">
+		    	<input 
+		    		matInput
+		    		type="email" 
+		    		name="email" 
+					formControlName="email" 
+		    		placeholder="John@example.com">
+		  	</mat-form-field>
+
+		  	<mat-form-field class="input-full-width">
+		    	<textarea 
+		    		matInput 
+		    		name="message" 
+					formControlName="message" 
+		    		placeholder="message">
+		    	</textarea>
+		  	</mat-form-field>
+			
+			<mat-card-actions>
+			  	<button 
+		    		mat-button 
+		    		color="warn"
+		    		[disabled]="!contactForm.valid"
+		    	 	matTooltipPosition="above">
+		    			<mat-icon>send</mat-icon> Send Message
+		    	</button>
+		  </mat-card-actions>
+
+		</form>
+	</mat-card>
+
+</mat-card>
+
+
